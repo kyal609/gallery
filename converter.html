@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+ 
+<head> 
+ <meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head> 
+ 
+<body> 
+ 
+ <p>Select a File to Load:</p> 
+ <input id="fileid" type="file" onchange="loadImageFileAsURL();" /> 
+ 
+ <br/> <br/> 
+ <b>Note:</b> This example won't work because the function definition contain duplicate parameter in strict mode. 
+ <br/> 
+ <b>Copy the below textarea strings and paste it to the browser url, you can see the selected image.</b> 
+ 
+ <textarea style="width:90%;height:300px;" id="txtid" style="width:640;height:240"></textarea> 
+ 
+ 
+ <script type="text/javascript"> 
+  function loadImageFileAsURL() 
+  { 
+   var filesSelected = document.getElementById("fileid").files; 
+   if (filesSelected.length > 0) 
+   { 
+    var fileToLoad = filesSelected[0]; 
+ 
+    var fileReader = new FileReader(); 
+ 
+    fileReader.onload = function(fileLoadedEvent) 
+    { 
+     var txtid = document.getElementById("txtid"); 
+ 
+     txtid.innerHTML = fileLoadedEvent.target.result; 
+    }; 
+ 
+    fileReader.readAsDataURL(fileToLoad); 
+   } 
+  } 
+ </script> 
+ 
+</body> 
+ 
+</html>
