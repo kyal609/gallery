@@ -10,7 +10,7 @@ function wallAnit() {
     }
 }
   body.onscroll =function(){
-    if(body.scrollTop>270){
+    if(body.scrollTop>200){
         main.style.overflow="scroll";
     }
     else{
